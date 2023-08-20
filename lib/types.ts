@@ -3,7 +3,7 @@ export type Sample = {
   key: string
 }
 
-export type Quality = 'flac' | '320' | '128' | '64'
+export type Quality = 'lossless' | '320' | '128' | '64'
 
 export type AudioFile = {
   path: string

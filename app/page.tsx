@@ -6,7 +6,11 @@ export default function Home() {
   const samples: Sample[] = [
     {
       full_name: 'Daughters – Less Sex',
-      key: 'daughters'
+      key: 'less_sex'
+    },
+    {
+      full_name: 'Heilung – Elivagar',
+      key: 'elivagar'
     }
   ]
 
@@ -14,7 +18,7 @@ export default function Home() {
     return {
       full_name: track.full_name,
       files: [
-        { path: `/audio/${track.key}/${track.key}.flac`, quality: 'flac' },
+        { path: `/audio/${track.key}/${track.key}.flac`, quality: 'lossless' },
         { path: `/audio/${track.key}/${track.key}_320.mp3`, quality: '320' },
         { path: `/audio/${track.key}/${track.key}_128.mp3`, quality: '128' },
         { path: `/audio/${track.key}/${track.key}_64.mp3`, quality: '64' }
