@@ -34,5 +34,3 @@ export const buildTracks = (samples: Sample[]): Track[] => {
     return { full_name: sample.full_name, files: shuffleAudioFiles(files) }
   })
 }
-
-export const buildAudioUrls = (files: AudioFile[]) => {}
