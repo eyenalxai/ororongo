@@ -2,10 +2,9 @@
 
 import { AudioFile, Quality, Track } from '@/lib/types'
 import { useMemo, useState } from 'react'
-import { TrackPlayer } from '@/components/track-player'
 import { Button } from '@/components/ui/button'
 import { cn, shuffleAudioFiles } from '@/lib/utils'
-import { Separator } from '@/components/ui/separator'
+import { TrackPresenter } from '@/components/track-presenter'
 
 type AudioTestProps = {
   tracks: Track[]
@@ -43,65 +42,19 @@ export const AudioTest = ({ tracks }: AudioTestProps) => {
 
   return (
     <div>
-      <div>
-        {shuffledTracks.map((track, idx) => {
-          return (
-            <>
-              <div key={track.full_name}>
-                <h2 className={cn('text-lg', 'mb-4')}>{track.full_name}</h2>
-                <div
-                  className={cn(
-                    'flex',
-                    'flex-col',
-                    'items-start',
-                    'justify-center',
-                    'gap-2'
-                  )}
-                >
-                  {track.files.map(file => {
-                    return (
-                      <div
-                        key={file.path}
-                        className={cn(
-                          'flex',
-                          'flex-row',
-                          'justify-center',
-                          'items-center',
-                          'gap-4'
-                        )}
-                      >
-                        <TrackPlayer audioFile={file} disabled={isFinished} />
-                        <Button
-                          variant={
-                            selectedQualities[track.full_name] === file.quality
-                              ? 'default'
-                              : 'ghost'
-                          }
-                          disabled={isFinished}
-                          onClick={() => selectAudio(file, track)}
-                        >
-                          SELECT
-                        </Button>
-                        {isFinished && (
-                          <div className={cn('mr-4')}>
-                            {file.quality.toUpperCase()}
-                          </div>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-              {
-                // If not last track, add a Separator
-                idx !== tracks.length - 1 && (
-                  <Separator className={cn('my-4')} />
-                )
-              }
-            </>
-          )
-        })}
-      </div>
+      {shuffledTracks.map((track, idx) => {
+        return (
+          <TrackPresenter
+            key={track.full_name}
+            track={track}
+            idx={idx}
+            tracks={tracks}
+            isFinished={isFinished}
+            selectedQualities={selectedQualities}
+            selectAudio={selectAudio}
+          />
+        )
+      })}
       <Button
         className={cn('mt-8')}
         disabled={
