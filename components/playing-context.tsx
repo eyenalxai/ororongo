@@ -30,10 +30,10 @@ export const PlayingProvider = ({ children }: { children: ReactNode }) => {
 
   const startAudio = (audioFile: AudioFile) => {
     stopCurrentAudio()
-    const newAudio = new Audio(audioFile.path)
+    const newAudio = new Audio(audioFile.url)
     newAudio.play().then(() => {
       setPlayingAudio(newAudio)
-      setPlayingAudioPath(audioFile.path)
+      setPlayingAudioPath(audioFile.url)
     })
   }
 

@@ -9,8 +9,8 @@ export default function Home() {
       key: 'less_sex'
     },
     {
-      full_name: 'Heilung – Elivagar',
-      key: 'elivagar'
+      full_name: 'Daft Punk – Contact',
+      key: 'contact'
     }
   ]
 

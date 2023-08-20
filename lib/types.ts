@@ -6,7 +6,7 @@ export type Sample = {
 export type Quality = 'lossless' | '320' | '128' | '64'
 
 export type AudioFile = {
-  path: string
+  url: string
   quality: Quality
 }
 

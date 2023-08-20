@@ -28,8 +28,8 @@ export const buildTracks = (samples: Sample[]): Track[] => {
 
   return samples.map(sample => {
     const files = qualities.map(quality => {
-      const path = buildPath(baseUrl, sample.key, quality)
-      return { path, quality }
+      const url = buildPath(baseUrl, sample.key, quality)
+      return { url, quality }
     })
     return { full_name: sample.full_name, files: shuffleAudioFiles(files) }
   })

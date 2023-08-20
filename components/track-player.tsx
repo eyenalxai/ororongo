@@ -10,7 +10,7 @@ type TrackPlayerProps = {
 
 export const TrackPlayer = ({ audioFile, disabled }: TrackPlayerProps) => {
   const { playingAudioPath, startAudio, stopCurrentAudio } = usePlaying()
-  const isPlaying = playingAudioPath === audioFile.path
+  const isPlaying = playingAudioPath === audioFile.url
 
   // if disabled, stop audio
   useEffect(() => {
